@@ -1,14 +1,19 @@
+const axios = require('axios');
 const name = process.argv[2];
 
 const hello = (name) => {
-  return new Promise((resolve) => {
     console.log("Hello, " + name);
     console.warn(process.exit);
     process.exit(0);
-    resolve();
-  });
 };
 
-module.exports = { hello };
+const goodbye = async (name) => {
+    await axios("https://google.com");
+    await axios("https://facebook.com");
+    await axios("https://iota.org");
+    console.log("Goodbye, " + name);
+};
+
+module.exports = { hello, goodbye };
 
 hello(name);
